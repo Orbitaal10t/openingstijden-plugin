@@ -87,6 +87,11 @@ function gplaces_settings_page() {
                                     Hoe krijg ik een API key?
                                 </a>
                             </p>
+                            <p class="description" style="color: #d63638;">
+                                <strong>Belangrijk:</strong> In Google Cloud Console moet je bij de API key restrictions
+                                jouw website domein toevoegen onder "HTTP referrers".
+                                Voeg toe: <code><?php echo esc_html(parse_url(home_url(), PHP_URL_HOST)); ?>/*</code>
+                            </p>
                         </td>
                     </tr>
 
