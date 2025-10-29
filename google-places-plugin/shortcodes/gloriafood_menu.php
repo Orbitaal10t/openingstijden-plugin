@@ -1,12 +1,17 @@
 <?php 
 if ( ! defined( 'ABSPATH' ) ) exit; 
 
-function gloriafood_menu_shortcode() { 
-    ob_start(); 
+function gloriafood_menu_shortcode() {
+    ob_start();
+
+    // Check of API key is ingesteld
+    if (empty(GFOOD_API_KEY)) {
+        return '<p>GloriaFood API Key niet ingesteld. Ga naar Instellingen > Google Places om deze in te stellen.</p>';
+    }
 
     $url = 'https://pos.globalfoodsoft.com/pos/menu';
     $headers = [
-        'Authorization' => 'dQdNBcDm4F9Nb43Erv',
+        'Authorization' => GFOOD_API_KEY,
         'Accept' => 'application/json',
         'Glf-Api-Version' => '2'
     ];

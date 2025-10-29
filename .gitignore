@@ -1,0 +1,38 @@
+# WordPress
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+
+# Plugin cache bestanden
+*.json
+openingstijden_cache.json
+gplaces_reviews_cache.json
+
+# API Keys en configuratie (extra beveiliging)
+config-local.php
+.env
+.env.local
+
+# IDE en editor bestanden
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+error_log
+debug.log
+
+# Composer
+/vendor/
+composer.lock
+
+# Node modules (indien van toepassing)
+node_modules/
+package-lock.json

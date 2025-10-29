@@ -15,6 +15,7 @@ define('GPLACES_MAIN_FILE', plugin_basename(__FILE__));
 
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/helpers.php';
+require_once __DIR__ . '/includes/admin.php';
 require_once __DIR__ . '/shortcodes/openingstijden.php';
 require_once __DIR__ . '/shortcodes/reviews.php';
 require_once __DIR__ . '/shortcodes/open_now.php';
