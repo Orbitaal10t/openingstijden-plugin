@@ -16,7 +16,18 @@ function gplaces_set_cache($filename, $data) {
 }
 
 function gplaces_fetch_api($url) {
-    $response = wp_remote_get($url);
-    if (is_wp_error($response)) return false;
-    return json_decode(wp_remote_retrieve_body($response), true);
+    $response = wp_remote_get($url, array('timeout' => 15));
+
+    if (is_wp_error($response)) {
+        error_log('Google Places API WP Error: ' . $response->get_error_message());
+        return false;
+    }
+
+    $response_code = wp_remote_retrieve_response_code($response);
+    if ($response_code !== 200) {
+        error_log('Google Places API HTTP Error: ' . $response_code);
+    }
+
+    $body = wp_remote_retrieve_body($response);
+    return json_decode($body, true);
 }
