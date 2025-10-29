@@ -16,7 +16,15 @@ function gplaces_set_cache($filename, $data) {
 }
 
 function gplaces_fetch_api($url) {
-    $response = wp_remote_get($url, array('timeout' => 15));
+    // Stuur referrer header mee voor API key validatie
+    $args = array(
+        'timeout' => 15,
+        'headers' => array(
+            'Referer' => home_url()
+        )
+    );
+
+    $response = wp_remote_get($url, $args);
 
     if (is_wp_error($response)) {
         error_log('Google Places API WP Error: ' . $response->get_error_message());
