@@ -1,5 +1,5 @@
-<?php 
-if ( ! defined( 'ABSPATH' ) ) exit; 
+<?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 function gplaces_openingstijden_shortcode() {
     ob_start();
@@ -42,15 +42,14 @@ function gplaces_openingstijden_shortcode() {
             $openingstijden = [$error_msg];
         }
     }
-}
-// Titel toevoegen boven de lijst
-echo '<p><b>Openingstijden</b></p>';
 
-foreach ($openingstijden as $dag) {
-    echo '<p>' . esc_html($dag) . '</p>';
-}
- 
+    // Titel toevoegen boven de lijst
+    echo '<p><b>Openingstijden</b></p>';
 
-return ob_get_clean(); 
-} 
+    foreach ($openingstijden as $dag) {
+        echo '<p>' . esc_html($dag) . '</p>';
+    }
+
+    return ob_get_clean();
+}
 add_shortcode('openingstijden', 'gplaces_openingstijden_shortcode');
